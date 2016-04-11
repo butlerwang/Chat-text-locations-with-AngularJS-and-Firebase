@@ -1,0 +1,5 @@
+== README
+
+Chat (AngularJS, Firebase ang Google Maps)
+
+Realtime chat multidevice based in Firebase DB, building in AngularJS. Yo can send text messages or select a location in a google map and send it.

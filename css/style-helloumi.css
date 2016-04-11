@@ -1,0 +1,40 @@
+.text-date {
+  color: #C7C7C7;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
+.msg-author {
+  font-style: italic;
+  color: #337AB7;
+  margin-right: 5px;
+}
+
+.msg-location {
+  width: 90%;
+  height: 150px;
+  border: solid 1px #C7C7C7;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.msg-box {
+  width: 100%;
+}
+
+.msg-send {
+  width: 60px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+}
+
+.box{
+  width: auto;
+  display: inline-block;
+}
+
+.field {
+  position: relative;
+  padding-right: 70px;
+}

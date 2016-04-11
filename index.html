@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Umi Codechallenge</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style-helloumi.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6spD5FBJS1XP8AjIerXt0q7hiiCx5cLE&callback=initMap"></script>
+  <script type="text/javascript" src="js/app-angular.js"></script>
+  <script type="text/javascript" src="js/reset-bd.js"></script>
+  <script type="text/javascript" src="js/maps-helloumi.js"></script>
+</head>
+<body>
+  <div ng-app="sampleApp" ng-controller="ChatCtrl" class="container">
+    <h1 class="text-center">Hello Umi Angular example</h1>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><b>Chat</b></div>
+          <div class="panel-body">
+            <ul class="chatbox">
+              <li ng-repeat="message in messages" ng-switch="message.type">
+                <div ng-switch-when="text">
+                  <p><spam class="msg-author">{{ message.author }}: </spam>{{ message.message }}</p>
+                  <p class="text-date">{{ message.timestamp | date:'dd-MMM-yyyy · HH:mm:ss' }}</p>
+                </div>
+                <div ng-switch-when="location">
+                  <p><spam class="msg-author">{{ message.author }}: </spam>**location**</p>
+                  <div id="map{{ message.timestamp }}" class="msg-location"/></div>
+                  <span>{{ googleMap(message.latitude, message.longitude, message.timestamp) }}</span>
+                  <p class="text-date">{{ message.timestamp | date:'dd-MMM-yyyy · HH:mm:ss' }}</p>
+                </div>
+              </li>
+            </ul> 
+          </div>
+          <div class="panel-footer">
+            <form ng-submit="addMessage()" class="field">
+              <input type="submit" value="Send" class="btn btn-primary msg-send">
+              <input type="text" ng-model="message" class="form-control msg-box" placeholder="Message">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
